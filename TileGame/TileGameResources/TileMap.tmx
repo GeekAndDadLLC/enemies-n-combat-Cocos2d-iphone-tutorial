@@ -10,6 +10,11 @@
     <property name="Collidable" value="True"/>
    </properties>
   </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collectable" value="True"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Background" width="50" height="50">
   <data encoding="base64" compression="zlib">
@@ -19,9 +24,14 @@
  <objectgroup name="Objects" width="50" height="50">
   <object name="SpawnPoint" x="59" y="259" width="32" height="26"/>
  </objectgroup>
+ <layer name="Foreground" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt07EJAAAIA0E3cf8tHcDGQgThrkod+Ag+yMEGZnQDnS7u+RwAAAAAAABgXwEwzwC7
+  </data>
+ </layer>
  <layer name="Meta" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmFsOhSAMBdmS+9+c8UtimkJftL33TEKiRlpGikTHeLkUrRoah+ou3vee4Pocazwq+Txw9dKhpubn2tljhquVLg4ARNB577NQzUn6vH91XgAAAICuWP4vVNrXPcZQzYP6lpXGyCLa45RjhAf1L+lE8/CwrnvLvHl6aPpZ+8x9ozwstSDtH+WxC5dbGqeyR8Y6l+Te9djFy0Oac3WsiZnpQY1FWkODuJbpYY35jx7SuY8YMzW2jPn4xvd4t2Z7rODyw0NXB6v3peTcy8MKPPhY8NBRyaPDOj+NV+5sDy889oMq7QboLVa2
+   eJztmN0KgCAMRn2lev+Hi64SG9P96GZ9BwSLnJ6cSpXycChKNjQO2V1uzuo+Vc/mcDT10bHVz2byueHyZYecqt/rzh41XK5wDuf7cQA+hebs+8K6yLZn9fbT9p3vsO8CAAAAf8LyfyHTue4xhmwe1LesNEYUsz1WOc7woP4lrSgeHtZ1b5k3Tw9NO2ubuu0sD0suSNvP8hiF61saJ7NHxDqX9D3qMYqXh7TPXl0TM9KDGos0hwpxL9LDGvOPHtK5nzFmamwR89HG99hboz16cP3DQ5cHvf1Scu3lYQUefCx46MjkscM6X41X39EeXnicB1nKBUqEV+I=
   </data>
  </layer>
 </map>
