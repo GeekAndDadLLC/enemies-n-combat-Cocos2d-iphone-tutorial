@@ -48,6 +48,8 @@
         [self setViewPointCenter:_player.position];
         
         [self addChild:_tileMap z:-1];
+        
+        self.touchEnabled = YES;
     }
     return self;
 }
@@ -65,6 +67,60 @@
     CGPoint centerOfView = ccp(winSize.width/2, winSize.height/2);
     CGPoint viewPoint = ccpSub(centerOfView, actualPosition);
     self.position = viewPoint;
+}
+
+#pragma mark - handle touches
+-(void)registerWithTouchDispatcher
+{
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self
+                                                              priority:0
+                                                       swallowsTouches:YES];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+	return YES;
+}
+
+-(void)setPlayerPosition:(CGPoint)position {
+	_player.position = position;
+}
+
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInView:touch.view];
+    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    CGPoint playerPos = _player.position;
+    CGPoint diff = ccpSub(touchLocation, playerPos);
+    
+    if ( abs(diff.x) > abs(diff.y) ) {
+        if (diff.x > 0) {
+            playerPos.x += _tileMap.tileSize.width;
+        } else {
+            playerPos.x -= _tileMap.tileSize.width;
+        }
+    } else {
+        if (diff.y > 0) {
+            playerPos.y += _tileMap.tileSize.height;
+        } else {
+            playerPos.y -= _tileMap.tileSize.height;
+        }
+    }
+    
+    CCLOG(@"playerPos %@",CGPointCreateDictionaryRepresentation(playerPos));
+    
+    // safety check on the bounds of the map
+    if (playerPos.x <= (_tileMap.mapSize.width * _tileMap.tileSize.width) &&
+        playerPos.y <= (_tileMap.mapSize.height * _tileMap.tileSize.height) &&
+        playerPos.y >= 0 &&
+        playerPos.x >= 0 )
+    {
+        [self setPlayerPosition:playerPos];
+    }
+    
+    [self setViewPointCenter:_player.position];
 }
 
 
