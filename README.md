@@ -2,7 +2,7 @@
 This is the source code for the Enemies And Combat cocos2d-iphone tutorial located  [here](http://geekanddad.wordpress.com/2010/06/22/enemies-and-combat-how-to-make-a-tile-based-game-with-cocos2d-part-3/).
 This is part 3 of a tutorial by Ray Wenderlich which starts with part 1 [here](http://www.raywenderlich.com/29458/how-to-make-a-tile-based-game-with-cocos2d-2-x)
 
-## Copyright and license are the same as for Ray Wenderlich's tutorials.  From his site:
+#### Copyright and license are the same as for Ray Wenderlich's tutorials.  From his site:
 
 ### What is the License for the Tutorial Source Code?
 
